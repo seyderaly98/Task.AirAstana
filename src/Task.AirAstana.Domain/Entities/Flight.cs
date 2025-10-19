@@ -21,16 +21,4 @@ public class Flight : BaseAuditableEntity
         Status = newStatus;
     }
 
-    public void Cancel()
-    {
-        Status = FlightStatus.Cancelled;
-    }
-
-    public void Delay()
-    {
-        if (Status != FlightStatus.Cancelled)
-        {
-            Status = FlightStatus.Delayed;
-        }
-    }
 }

@@ -16,6 +16,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Domain", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Infrastructure", "src\Task.AirAstana.Infrastructure\Task.AirAstana.Infrastructure.csproj", "{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{44F5FF81-ED03-4179-9516-7B5971FD2EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.UnitTests", "tests\Domain.UnitTests\Domain.UnitTests.csproj", "{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "tests\Application.UnitTests\Application.UnitTests.csproj", "{719E4E25-309B-4DBB-AC46-D9DABB2F38A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +44,14 @@ Global
 		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719E4E25-309B-4DBB-AC46-D9DABB2F38A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719E4E25-309B-4DBB-AC46-D9DABB2F38A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719E4E25-309B-4DBB-AC46-D9DABB2F38A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719E4E25-309B-4DBB-AC46-D9DABB2F38A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +64,7 @@ Global
 		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33} = {12E9884F-9A30-48E5-840D-BB98C7000943}
 		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01} = {12E9884F-9A30-48E5-840D-BB98C7000943}
 		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F} = {12E9884F-9A30-48E5-840D-BB98C7000943}
+		{A9029FAB-882F-4B66-80B0-1C6E3EEE85EF} = {44F5FF81-ED03-4179-9516-7B5971FD2EDE}
+		{719E4E25-309B-4DBB-AC46-D9DABB2F38A3} = {44F5FF81-ED03-4179-9516-7B5971FD2EDE}
 	EndGlobalSection
 EndGlobal

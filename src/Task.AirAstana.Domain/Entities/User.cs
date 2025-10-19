@@ -9,13 +9,4 @@ public class User : BaseAuditableEntity
     public int RoleId { get; set; }
     public Role Role { get; set; } = null!;
 
-    public bool HasRole(string roleCode)
-    {
-        return Role?.Code.Equals(roleCode, StringComparison.OrdinalIgnoreCase) ?? false;
-    }
-
-    public bool IsModerator()
-    {
-        return HasRole("Moderator");
-    }
 }
