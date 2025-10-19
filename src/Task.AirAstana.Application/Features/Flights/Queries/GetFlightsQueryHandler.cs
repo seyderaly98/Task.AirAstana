@@ -25,7 +25,6 @@ namespace Task.AirAstana.Application.Features.Flights.Queries;
 
         public async Task<List<FlightDto>> Handle(GetFlightsQuery request, CancellationToken cancellationToken)
         {
-            // ВАЖНО: Читаем ТОЛЬКО из кэша согласно ТЗ
             var cachedFlights = await _cacheService.GetAsync<List<FlightDto>>(CacheKey, cancellationToken);
             List<FlightDto> flights;
 
@@ -33,18 +32,13 @@ namespace Task.AirAstana.Application.Features.Flights.Queries;
             {
                 _logger.LogInformation("Кэш пуст. Загрузка рейсов из БД");
 
-                // Если кэш пуст - загрузить из БД
                 var flightsFromDb = await _unitOfWork.Flights.GetAllAsync(cancellationToken);
 
-                // Маппинг в DTO
                 flights = _mapper.Map<List<FlightDto>>(flightsFromDb);
 
-                // Сортировка по Arrival (обязательно по ТЗ)
                 flights = flights.OrderBy(f => f.Arrival).ToList();
 
-                // Положить в кэш на 1 час
                 await _cacheService.SetAsync(CacheKey, flights, TimeSpan.FromHours(1), cancellationToken);
-
                 _logger.LogInformation("Рейсы загружены из БД и закэшированы. Количество: {Count}", flights.Count);
             }
             else
@@ -53,16 +47,10 @@ namespace Task.AirAstana.Application.Features.Flights.Queries;
                 _logger.LogInformation("Рейсы загружены из кэша. Количество: {Count}", flights.Count);
             }
 
-            // Фильтрация по Origin и/или Destination
             if (!string.IsNullOrWhiteSpace(request.Origin))
-            {
                 flights = flights.Where(f => f.Origin.Contains(request.Origin, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
-
             if (!string.IsNullOrWhiteSpace(request.Destination))
-            {
                 flights = flights.Where(f => f.Destination.Contains(request.Destination, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
 
             _logger.LogInformation("Возвращено рейсов после фильтрации: {Count}", flights.Count);
 

@@ -110,7 +110,7 @@ public class ApplicationDbContextInitializer
         
         _logger.LogInformation("Создано пользователей: {Count}", users.Count);
         _logger.LogInformation("Учетные данные:");
-        _logger.LogInformation("Moderator: moderator / moderator123");
+        _logger.LogInformation("Moderator: admin / admin123");
         _logger.LogInformation("User: user / user123");
     }
 

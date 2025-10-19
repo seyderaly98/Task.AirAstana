@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Task.AirAstana.Infrastructure\Task.AirAstana.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

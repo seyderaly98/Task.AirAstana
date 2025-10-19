@@ -89,13 +89,10 @@ public class CacheService : ICacheService
         {
             var db = _redis.GetDatabase();
             var server = _redis.GetServer(_redis.GetEndPoints().First());
-            
-            // Получить все ключи по паттерну
             var keys = server.Keys(pattern: pattern).ToArray();
             
             if (keys.Length > 0)
             {
-                // Удалить все найденные ключи
                 await db.KeyDeleteAsync(keys);
                 _logger.LogInformation("Удалено {Count} ключей из Redis по паттерну: {Pattern}", keys.Length, pattern);
             }

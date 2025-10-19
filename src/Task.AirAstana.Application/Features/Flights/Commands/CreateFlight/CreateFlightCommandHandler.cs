@@ -16,12 +16,7 @@ public class CreateFlightCommandHandler : IRequestHandler<CreateFlightCommand, F
     private readonly IMapper _mapper;
     private readonly ILogger<CreateFlightCommandHandler> _logger;
 
-    public CreateFlightCommandHandler(
-        IUnitOfWork unitOfWork,
-        ICacheService cacheService,
-        ICurrentUserService currentUserService,
-        IMapper mapper,
-        ILogger<CreateFlightCommandHandler> logger)
+    public CreateFlightCommandHandler( IUnitOfWork unitOfWork, ICacheService cacheService, ICurrentUserService currentUserService, IMapper mapper, ILogger<CreateFlightCommandHandler> logger)
     {
         _unitOfWork = unitOfWork;
         _cacheService = cacheService;
@@ -43,7 +38,7 @@ public class CreateFlightCommandHandler : IRequestHandler<CreateFlightCommand, F
 
         var createdFlight = await _unitOfWork.Flights.AddAsync(flight, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        await _cacheService.RemoveByPatternAsync("flights:*", cancellationToken);
+        await _cacheService.RemoveAsync("flights:all", cancellationToken);
 
         _logger.LogInformation(
             "Рейс создан. ID: {FlightId}, Origin: {Origin}, Destination: {Destination}, Пользователь: {Username}, Время: {Time}",

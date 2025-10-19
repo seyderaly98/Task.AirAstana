@@ -96,8 +96,8 @@ public static class DependencyInjection
 
         services.AddAuthorization(options =>
         {
-            options.AddPolicy("Moderator", policy => policy.RequireRole("Admin"));
-            options.AddPolicy("User", policy => policy.RequireRole("User", "Admin"));
+            options.AddPolicy("Moderator", policy => policy.RequireRole("Moderator", "Admin"));
+            options.AddPolicy("User", policy => policy.RequireRole("User", "Moderator", "Admin"));
         });
 
         return services;

@@ -23,27 +23,19 @@ public class UpdateFlightStatusCommandHandler : IRequestHandler<UpdateFlightStat
 
     public async Task<Unit> Handle(UpdateFlightStatusCommand request, CancellationToken cancellationToken)
     {
-        // Найти рейс
         var flight = await _unitOfWork.Flights.GetByIdAsync(request.FlightId, cancellationToken);
 
         if (flight == null)
-        {
             throw new NotFoundException(nameof(Domain.Entities.Flight), request.FlightId);
-        }
 
         var oldStatus = flight.Status;
-
-        // Использовать доменную логику для обновления статуса
         flight.UpdateStatus(request.Status);
 
-        // Сохранить в БД
         await _unitOfWork.Flights.UpdateAsync(flight, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        // Обновить кэш
-        await _cacheService.RemoveByPatternAsync("flights:*", cancellationToken);
+        await _cacheService.RemoveAsync("flights:all", cancellationToken);
 
-        // Залогировать изменение
         _logger.LogInformation(
             "Статус рейса изменён. ID: {FlightId}, Старый статус: {OldStatus}, Новый статус: {NewStatus}, Пользователь: {Username}, Время: {Time}",
             flight.Id,
