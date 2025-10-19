@@ -17,4 +17,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Task.AirAstana.Application\Task.AirAstana.Application.csproj" />
+    <ProjectReference Include="..\Task.AirAstana.Domain\Task.AirAstana.Domain.csproj" />
+    <ProjectReference Include="..\Task.AirAstana.Infrastructure\Task.AirAstana.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
