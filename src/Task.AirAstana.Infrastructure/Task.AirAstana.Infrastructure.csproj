@@ -31,4 +31,9 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Task.AirAstana.Application\Task.AirAstana.Application.csproj" />
+    <ProjectReference Include="..\Task.AirAstana.Domain\Task.AirAstana.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
