@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.API.Presentation", "src\Task.AirAstana.API.Presentation\Task.AirAstana.API.Presentation.csproj", "{61F768C9-BBD7-49C0-9A2D-9D58B14D045A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12E9884F-9A30-48E5-840D-BB98C7000943}"
+	ProjectSection(SolutionItems) = preProject
+		README.MD = README.MD
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Application", "src\Task.AirAstana.Application\Task.AirAstana.Application.csproj", "{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}"
 EndProject
