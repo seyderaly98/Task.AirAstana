@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.API.Presenta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12E9884F-9A30-48E5-840D-BB98C7000943}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Application", "src\Task.AirAstana.Application\Task.AirAstana.Application.csproj", "{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Domain", "src\Task.AirAstana.Domain\Task.AirAstana.Domain.csproj", "{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.AirAstana.Infrastructure", "src\Task.AirAstana.Infrastructure\Task.AirAstana.Infrastructure.csproj", "{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +23,18 @@ Global
 		{61F768C9-BBD7-49C0-9A2D-9D58B14D045A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F768C9-BBD7-49C0-9A2D-9D58B14D045A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F768C9-BBD7-49C0-9A2D-9D58B14D045A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{61F768C9-BBD7-49C0-9A2D-9D58B14D045A} = {12E9884F-9A30-48E5-840D-BB98C7000943}
+		{96B3CDC1-2552-4DFE-BC1E-AFAE4AFB8B33} = {12E9884F-9A30-48E5-840D-BB98C7000943}
+		{4A4B712A-CF57-47EC-9A03-5A12E5AC9E01} = {12E9884F-9A30-48E5-840D-BB98C7000943}
+		{F4A50F68-637B-46F3-A1B2-FACBF6FDD41F} = {12E9884F-9A30-48E5-840D-BB98C7000943}
 	EndGlobalSection
 EndGlobal
