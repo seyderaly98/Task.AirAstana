@@ -11,13 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Serilog конфигурация
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 builder.Services.AddApplication();
-
-// Временно для отладки
-var jwtSection = builder.Configuration.GetSection("JwtSettings");
-Console.WriteLine($"JWT Section Exists: {jwtSection.Exists()}");
-Console.WriteLine($"JWT Secret: {jwtSection["Secret"]?.Substring(0, 10)}...");
-Console.WriteLine($"JWT Issuer: {jwtSection["Issuer"]}");
-Console.WriteLine($"JWT Audience: {jwtSection["Audience"]}");
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -25,6 +18,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+    
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "AirAstanaAPI",
@@ -116,21 +113,6 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 app.UseSerilogRequestLogging(); 
-
-app.Use(async (context, next) =>
-{
-    var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
-    if (!string.IsNullOrEmpty(authHeader))
-    {
-        Console.WriteLine($"[DEBUG] Authorization header: {authHeader}");
-        if (authHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
-        {
-            var token = authHeader.Substring("Bearer ".Length).Trim();
-            Console.WriteLine($"[DEBUG] Extracted token: {token}");
-        }
-    }
-    await next();
-});
 
 app.UseAuthentication();
 app.UseAuthorization();
